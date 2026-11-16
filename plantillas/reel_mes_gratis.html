@@ -1,0 +1,137 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+#stage{width:1080px;height:1920px;position:relative;overflow:hidden;background:var(--cream)}
+.scene{position:absolute;inset:0;opacity:0}
+.h{position:absolute;left:90px;right:90px;top:260px;font-family:'Fraunces';font-weight:700;letter-spacing:-.03em;line-height:1;font-size:104px}
+.h em{font-style:italic}
+.k{font-family:'Albert Sans';font-size:28px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:26px;display:block}
+#subs{position:absolute;left:70px;right:70px;top:1440px;text-align:center;font-family:'Albert Sans';font-weight:800;font-size:58px;line-height:1.2;z-index:9;opacity:0}
+#subs span{color:#fff;-webkit-text-stroke:0;text-shadow:0 4px 0 rgba(0,0,0,.35),0 0 18px rgba(0,0,0,.45);padding:0 4px;border-radius:12px}
+#subs span.on{background:var(--sand);color:var(--ink);text-shadow:none}
+/* s1 bolas de comida */
+.food{position:absolute;border-radius:50%;opacity:0}
+/* teléfono */
+.phone{position:absolute;left:280px;top:600px;width:520px;height:960px;background:#1b140d;border-radius:64px;padding:18px;box-shadow:0 40px 80px rgba(36,27,18,.35)}
+.scr{background:var(--cream);border-radius:48px;height:100%;overflow:hidden;position:relative}
+.cover{height:200px;background:linear-gradient(135deg,#E8B98A,#C75D38)}
+.av{position:absolute;left:30px;top:150px;width:100px;height:100px;border-radius:50%;background:#fff;border:6px solid var(--cream);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-weight:700;font-size:44px;color:var(--clay)}
+.bz{padding:62px 30px 0}
+.bz b{font-family:'Fraunces';font-size:34px;display:block}
+.bz small{font-size:19px;color:var(--ink-soft)}
+.prod{display:flex;align-items:center;gap:16px;background:#fff;border-radius:20px;padding:14px;margin-top:16px;opacity:0}
+.prod i{width:78px;height:78px;border-radius:14px;flex:none}
+.prod div{flex:1;font-size:21px;font-weight:600}
+.prod em{font-style:normal;font-weight:800;font-size:23px}
+.wabar{position:absolute;left:24px;right:24px;bottom:26px;background:var(--wa);color:#073B1E;border-radius:999px;text-align:center;padding:18px;font-weight:800;font-size:23px}
+.ej{position:absolute;right:90px;top:520px;font-size:22px;letter-spacing:.12em;font-weight:700;color:var(--ink-soft)}
+/* chat */
+.chat{position:absolute;left:90px;right:90px;top:560px;background:#ECE5DD;border-radius:36px;padding:34px;height:760px}
+.bub{background:#fff;border-radius:26px 26px 26px 8px;padding:22px 26px;font-size:32px;line-height:1.35;max-width:84%;margin-bottom:20px;opacity:0;color:var(--ink)}
+.bub.me{background:#DCF8C6;margin-left:auto;border-radius:26px 26px 8px 26px}
+.bub b{display:block;color:var(--green);font-size:22px;margin-bottom:6px}
+.zero{position:absolute;right:110px;top:1160px;background:var(--wa);color:#073B1E;border-radius:999px;padding:24px 40px;font-weight:800;font-size:44px;opacity:0;transform-origin:center}
+/* costo */
+.cost{position:absolute;left:90px;right:90px;top:580px;padding:46px 50px}
+.cost h3{font-size:52px}.cost .sub{font-size:26px;color:var(--ink-soft);margin-top:6px}
+.ln{display:flex;justify-content:space-between;font-size:36px;padding:22px 0;border-bottom:2px solid #F1E8D8;font-weight:500;opacity:0}
+.ln b{font-variant-numeric:tabular-nums}
+.ln.t{border:none;font-weight:800;font-size:44px;color:var(--green)}
+.bar{height:38px;border-radius:19px;background:#F1E8D8;overflow:hidden;margin-top:20px;display:flex}
+.bar i{display:block;height:100%}
+/* regalo */
+.giftbox{position:absolute;left:340px;top:640px;width:400px;height:330px;background:var(--sand);border-radius:28px}
+.giftbox:before{content:'';position:absolute;left:170px;top:0;bottom:0;width:60px;background:var(--clay)}
+.lid{position:absolute;left:310px;top:560px;width:460px;height:110px;background:#fff;border-radius:24px;transform-origin:20px 110px}
+.lid:before{content:'';position:absolute;left:200px;top:0;bottom:0;width:60px;background:var(--clay)}
+.big{position:absolute;left:0;right:0;text-align:center;font-family:'Fraunces';font-weight:700;letter-spacing:-.03em;color:#fff}
+.big em{font-style:italic;color:var(--sand)}
+/* contador */
+.cnt{position:absolute;left:0;right:0;top:560px;text-align:center;font-family:'Fraunces';font-weight:700;font-size:420px;color:#fff;line-height:1;letter-spacing:-.04em}
+.cntl{position:absolute;left:0;right:0;top:1030px;text-align:center;font-size:64px;font-weight:700;color:#FFE9DE}
+/* cta */
+.wmk{position:absolute;left:0;right:0;top:330px;text-align:center;font-size:96px;color:#fff}
+.wmk .wm i{background:var(--clay);color:#fff}
+.cta{position:absolute;left:50%;top:1000px;transform:translateX(-50%);background:var(--clay);color:#fff;border-radius:999px;padding:34px 60px;font-weight:800;font-size:56px;white-space:nowrap}
+.dir{position:absolute;left:0;right:0;top:1180px;text-align:center;color:#E9DCCB;font-size:38px;font-weight:600}
+</style></head><body>
+<div id="stage">
+  <div class="scene" id="s1">
+    <div class="food" style="left:120px;top:820px;width:300px;height:300px;background:radial-gradient(circle at 35% 35%,#F3D9B5,#C68A4F)"></div>
+    <div class="food" style="left:470px;top:760px;width:250px;height:250px;background:radial-gradient(circle at 35% 35%,#7A4529,#3A1F12)"></div>
+    <div class="food" style="left:640px;top:980px;width:320px;height:320px;background:radial-gradient(circle at 35% 35%,#F6C177,#D7652E)"></div>
+    <div class="h" id="h1" style="color:var(--ink)"><span class="k" style="color:var(--clay)">Pregunta</span>¿Haces pan, pasteles o <em style="color:var(--clay)">comida en casa?</em></div>
+  </div>
+  <div class="scene" id="s2">
+    <div class="h" id="h2" style="color:#fff;font-size:92px"><span class="k" style="color:var(--sand)">Con GuiaComida</span>Tu vitrina en internet, <em style="color:var(--sand)">lista en minutos</em></div>
+    <div class="phone" id="ph2"><div class="scr"><div class="cover"></div><div class="av">E</div><div class="bz"><b>Panadería La Espiga</b><small>Pan de masa madre</small></div><div class="wabar">Pedir por WhatsApp</div></div></div>
+  </div>
+  <div class="scene" id="s3">
+    <div class="h" style="color:var(--ink);font-size:92px">Menú con <em style="color:var(--clay)">fotos y precios</em></div>
+    <div class="ej">EJEMPLO</div>
+    <div class="phone"><div class="scr"><div class="cover"></div><div class="av">E</div>
+      <div class="bz"><b>Panadería La Espiga</b><small>Pan de masa madre</small>
+        <div class="prod"><i style="background:linear-gradient(135deg,#E9C48E,#B9773E)"></i><div>Hogaza de masa madre</div><em>$95</em></div>
+        <div class="prod"><i style="background:linear-gradient(135deg,#F3D9B5,#D8925A)"></i><div>Rol de canela</div><em>$35</em></div>
+        <div class="prod"><i style="background:linear-gradient(135deg,#F7E3C8,#E2A46A)"></i><div>Conchas (6)</div><em>$90</em></div>
+        <div class="prod"><i style="background:linear-gradient(135deg,#6B3B22,#3A1F12)"></i><div>Pastel de chocolate</div><em>$380</em></div>
+      </div><div class="wabar">Pedir por WhatsApp</div></div></div>
+  </div>
+  <div class="scene" id="s4">
+    <div class="h" style="color:#fff;font-size:96px">Te piden directo <em style="color:var(--wa)">por WhatsApp</em></div>
+    <div class="chat">
+      <div class="bub"><b>Pedido desde tu vitrina</b>Hola, quiero 1 hogaza y 6 conchas para el sábado.</div>
+      <div class="bub me">¡Listo! Quedan apartadas.</div>
+      <div class="bub"><b>Pedido desde tu vitrina</b>¿Hacen pastel para 20 personas?</div>
+    </div>
+    <div class="zero" id="zero">Sin comisiones</div>
+  </div>
+  <div class="scene" id="s5">
+    <div class="h" style="color:var(--ink);font-size:96px">Sabes cuánto <em style="color:var(--green)">ganas</em></div>
+    <div class="cost card">
+      <h3>Pastel de chocolate</h3><div class="sub">Para 20 personas · ejemplo</div>
+      <div class="ln"><span>Ingredientes</span><b>$118</b></div>
+      <div class="ln"><span>Empaque</span><b>$24</b></div>
+      <div class="ln"><span>Precio de venta</span><b>$380</b></div>
+      <div class="ln t"><span>Te queda</span><b id="gan">$0</b></div>
+      <div class="bar"><i id="bc" style="width:0;background:var(--clay)"></i><i id="bg" style="width:0;background:var(--green)"></i></div>
+    </div>
+  </div>
+  <div class="scene" id="s6">
+    <div class="giftbox" id="gb"></div><div class="lid" id="lid"></div>
+    <div class="big" id="g1" style="top:1060px;font-size:170px">1 mes <em>gratis</em></div>
+    <div class="big" id="g2" style="top:1260px;font-size:70px;color:#CFE6D4">sin tarjeta</div>
+  </div>
+  <div class="scene" id="s7">
+    <div class="cnt" id="cnt">0</div>
+    <div class="cntl" id="cntl">lugares, nada más</div>
+  </div>
+  <div class="scene" id="s8">
+    <div class="wmk" id="wmk"><span class="wm"><i>G</i><b>Guia</b><span>Comida</span></span></div>
+    <div class="big" id="c1" style="top:620px;font-size:120px;line-height:1">Activa tu<br><em>mes gratis</em></div>
+    <div class="cta" id="cta">Link en el perfil</div>
+    <div class="dir" id="dir">guiacomida.com/bienvenida2026</div>
+  </div>
+  <div id="subs"></div>
+</div>
+<script src="reel_gc.js"></script>
+<script>
+window.T = window.T || [0,3.25,7.75,10.55,13.55,17.9,21.3,22.85,27.2];
+const BG=['#FBF6EE','#C75D38','#FBF6EE','#241B12','#FBF1DC','#3C6B47','#C75D38','#241B12'];
+window.W = [["¿Haces", 0.15, 0.47], ["pan,", 0.55, 1.03], ["pasteles", 1.23, 1.75], ["o", 1.83, 1.91], ["comida", 2.07, 2.39], ["en", 2.43, 2.47], ["casa?", 2.55, 3.15], ["Con", 3.48, 3.51], ["GuiaComida", 3.59, 4.23], ["tienes", 4.31, 4.47], ["tu", 4.55, 4.71], ["propia", 4.83, 5.03], ["vitrina", 5.07, 5.43], ["en", 5.47, 5.51], ["internet,", 5.59, 6.23], ["lista", 6.31, 6.63], ["en", 6.79, 6.87], ["minutos.", 6.95, 7.75], ["Tus", 7.99, 8.07], ["clientes", 8.31, 8.55], ["ven", 8.63, 8.71], ["tu", 8.75, 8.79], ["menú", 8.87, 9.11], ["con", 9.19, 9.27], ["fotos", 9.35, 9.75], ["y", 9.79, 9.83], ["precios…", 9.91, 10.63], ["y", 10.67, 10.71], ["te", 10.75, 10.79], ["piden", 10.87, 11.11], ["directo", 11.19, 11.55], ["por", 11.59, 11.75], ["WhatsApp,", 11.99, 12.47], ["sin", 12.55, 12.63], ["comisiones.", 12.71, 13.43], ["Además,", 13.86, 14.47], ["sabes", 14.55, 14.79], ["cuánto", 14.95, 15.23], ["te", 15.27, 15.35], ["cuesta", 15.43, 15.75], ["cada", 15.83, 16.07], ["receta", 16.19, 16.55], ["y", 16.71, 16.79], ["cuánto", 16.95, 17.27], ["ganas.", 17.35, 17.91], ["Y", 18.11, 18.13], ["ahora,", 18.15, 18.63], ["te", 18.67, 18.71], ["regalamos", 18.79, 19.27], ["un", 19.43, 19.51], ["mes", 19.59, 19.75], ["gratis,", 19.95, 20.39], ["sin", 20.47, 20.55], ["tarjeta.", 20.63, 21.19], ["Son", 21.54, 21.59], ["solo", 21.63, 21.83], ["cien", 21.99, 22.15], ["lugares.", 22.23, 22.79], ["Entra", 23.11, 23.35], ["al", 23.39, 23.43], ["link", 23.51, 23.67], ["del", 23.75, 23.83], ["perfil", 24.03, 24.23], ["y", 24.39, 24.5], ["activa", 24.6, 24.79], ["tu", 24.87, 24.95], ["mes.", 25.11, 25.51]];
+function anim(t,T){
+  const L=i=>t-T[i];
+  {const lt=L(0);rise($('h1'),lt,60,0.45);document.querySelectorAll('#s1 .food').forEach((f,j)=>{pop(f,lt-0.5-j*0.35,0.5);f.style.transform+=` translateY(${Math.sin(t*2+j)*10}px)`});}
+  {const lt=L(1);rise($('h2'),lt,60,0.45);$('ph2').style.transform=`translateY(${(1-back((lt-0.4)/0.7))*900}px) rotate(${-3*ease(lt/1)}deg)`;}
+  {const lt=L(2);document.querySelectorAll('#s3 .prod').forEach((p,j)=>{rise(p,lt-0.3-j*0.45,40,0.3)});
+   document.querySelector('#s3 .phone').style.transform=`scale(${1+0.04*ease(lt/2.8)})`;}
+  {const lt=L(3);document.querySelectorAll('#s4 .bub').forEach((p,j)=>rise(p,lt-0.2-j*0.6,30,0.3));pop($('zero'),lt-1.8,0.4);}
+  {const lt=L(4);document.querySelectorAll('#s5 .ln').forEach((p,j)=>rise(p,lt-0.2-j*0.45,20,0.3));
+   const k=ease((lt-2.0)/1.0);$('gan').textContent='$'+Math.round(238*k)+(k>0.99?' · 63%':'');$('bc').style.width=(37*ease((lt-1.6)/0.6))+'%';$('bg').style.width=(63*k)+'%';}
+  {const lt=L(5);pop($('gb'),lt,0.4);pop($('lid'),lt,0.4);$('lid').style.transform+=` rotate(${-28*ease((lt-0.6)/0.4)}deg) translateY(${-60*ease((lt-0.6)/0.4)}px)`;
+   rise($('g1'),lt-0.9,60,0.4);rise($('g2'),lt-1.9,30,0.3);}
+  {const lt=L(6);$('cnt').textContent=Math.round(100*ease(lt/0.9));rise($('cntl'),lt-0.4,30,0.3);}
+  {const lt=L(7);pop($('wmk'),lt,0.5);rise($('c1'),lt-0.2,50,0.4);
+   $('cta').style.opacity=clamp((lt-0.6)/0.15);$('cta').style.transform=`translateX(-50%) scale(${(0.6+0.4*back((lt-0.6)/0.45))*(1+0.035*Math.sin(lt*7))})`;rise($('dir'),lt-1.0,30,0.3);}
+}
+render(0);
+</script></body></html>

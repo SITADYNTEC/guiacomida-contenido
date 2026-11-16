@@ -1,0 +1,31 @@
+/* Marca GuiaComida para redes. Tomada del sitio guiacomida.com: Fraunces (títulos) + Albert Sans (texto),
+   barro #C75D38, crema #FBF6EE, tinta #241B12, arena #FBF1DC, verde #3C6B47. */
+@font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-latin-400-normal.woff2');font-weight:400}
+@font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-latin-600-normal.woff2');font-weight:500 600}
+@font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-latin-700-normal.woff2');font-weight:700 800}
+@font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-latin-900-normal.woff2');font-weight:900}
+@font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-latin-600-italic.woff2');font-weight:400 600;font-style:italic}
+@font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-latin-700-italic.woff2');font-weight:700 900;font-style:italic}
+@font-face{font-family:'Albert Sans';src:url('assets/fonts/albert-sans-latin-400-normal.woff2');font-weight:400}
+@font-face{font-family:'Albert Sans';src:url('assets/fonts/albert-sans-latin-500-normal.woff2');font-weight:500}
+@font-face{font-family:'Albert Sans';src:url('assets/fonts/albert-sans-latin-600-normal.woff2');font-weight:600}
+@font-face{font-family:'Albert Sans';src:url('assets/fonts/albert-sans-latin-700-normal.woff2');font-weight:700}
+@font-face{font-family:'Albert Sans';src:url('assets/fonts/albert-sans-latin-800-normal.woff2');font-weight:800 900}
+:root{
+  --clay:#C75D38; --clay2:#BF5332; --clay-soft:#FBE3DA;
+  --cream:#FBF6EE; --sand:#FBF1DC; --sand2:#E9D9B0; --gold:#8a6d1a;
+  --ink:#241B12; --ink2:#3A2E22; --ink-soft:#7A6A58;
+  --green:#3C6B47; --green-soft:#EAF3EC; --wa:#25D366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#555;font-family:'Albert Sans',sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-.02em}
+h1 em,h2 em,.serif em{font-style:italic;font-weight:700}
+.kicker{font-family:'Albert Sans';text-transform:uppercase;letter-spacing:.24em;font-weight:700;font-size:26px}
+/* Marca: wordmark en texto (cuando exista assets/logo.png se puede sustituir) */
+.wm{font-family:'Fraunces';font-weight:700;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:0}
+.wm i{margin-right:.3em;font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:1.25em;height:1.25em;border-radius:30%;background:var(--clay);color:#fff;font-size:.8em}
+.wm b{font-weight:700;letter-spacing:-.03em}.wm span{font-style:italic;font-weight:600}
+.pill{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:14px 28px;font-weight:700;font-size:28px}
+.btn-wa{display:inline-flex;align-items:center;gap:16px;background:var(--wa);color:#073B1E;border-radius:999px;padding:22px 38px;font-weight:800;font-size:32px}
+.card{background:#fff;border-radius:28px;box-shadow:0 24px 60px rgba(36,27,18,.16)}

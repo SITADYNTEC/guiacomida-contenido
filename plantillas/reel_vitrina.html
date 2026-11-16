@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+#stage{width:1080px;height:1920px;position:relative;overflow:hidden;background:var(--ink)}
+.scene{position:absolute;inset:0;opacity:0}
+.big{position:absolute;left:90px;right:90px;font-family:'Fraunces';font-weight:700;letter-spacing:-.03em;line-height:.98}
+.big span{display:block;opacity:0}
+.big em{font-style:italic}
+.k{position:absolute;left:90px;top:300px;font-size:30px;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+/* s4 chat */
+.blur{position:absolute;left:120px;right:120px;top:980px}
+.blur div{background:#fff;border-radius:26px;padding:22px 26px;font-size:30px;margin-bottom:18px;max-width:80%;color:var(--ink);box-shadow:0 8px 20px rgba(36,27,18,.12)}
+.blur div:nth-child(even){margin-left:auto;background:#DCF8C6}
+.ph{display:inline-block;width:150px;height:110px;border-radius:14px;background:linear-gradient(135deg,#E9C48E,#B9773E);vertical-align:middle}
+/* s6 phone */
+.phone{position:absolute;left:280px;top:620px;width:520px;height:1000px;background:#1b140d;border-radius:64px;padding:18px;box-shadow:0 40px 80px rgba(36,27,18,.35)}
+.scr{background:var(--cream);border-radius:48px;height:100%;overflow:hidden;position:relative}
+.cover{height:200px;background:linear-gradient(135deg,#E8B98A,#C75D38)}
+.av{position:absolute;left:30px;top:150px;width:100px;height:100px;border-radius:50%;background:#fff;border:6px solid var(--cream);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-weight:700;font-size:44px;color:var(--clay)}
+.bz{padding:62px 30px 0}
+.bz b{font-family:'Fraunces';font-size:34px;display:block}
+.bz small{font-size:19px;color:var(--ink-soft)}
+.prod{display:flex;align-items:center;gap:16px;background:#fff;border-radius:20px;padding:14px;margin-top:16px;opacity:0}
+.prod i{width:78px;height:78px;border-radius:14px;flex:none}
+.prod div{flex:1;font-size:21px;font-weight:600}
+.prod em{font-style:normal;font-weight:800;font-size:23px}
+.wabar{position:absolute;left:24px;right:24px;bottom:26px;background:var(--wa);color:#073B1E;border-radius:999px;text-align:center;padding:18px;font-weight:800;font-size:23px}
+.ej{position:absolute;right:90px;top:560px;font-size:22px;letter-spacing:.12em;font-weight:700;color:var(--ink-soft)}
+.url{position:absolute;left:90px;top:1100px;background:var(--ink);color:#fff;border-radius:18px;padding:20px 28px;font-size:38px;font-weight:600;opacity:0}
+.url b{color:var(--sand)}
+/* cta */
+.wmk{position:absolute;left:0;right:0;top:420px;text-align:center;font-size:92px;color:#fff}
+.wmk .wm i{background:#fff;color:var(--clay)}
+.cta{position:absolute;left:50%;top:1060px;transform:translateX(-50%);background:#fff;color:var(--clay2);border-radius:999px;padding:34px 60px;font-weight:800;font-size:54px;white-space:nowrap}
+.lugares{position:absolute;left:0;right:0;top:1250px;text-align:center;color:#fff;font-size:40px;font-weight:600}
+.dir{position:absolute;left:0;right:0;top:1330px;text-align:center;color:#FFE9DE;font-size:34px}
+</style></head><body>
+<div id="stage">
+  <div class="scene" id="s1"><div class="big" style="top:700px;font-size:150px;color:#fff"><span>Haces</span><span>el mejor</span><span style="color:#F2A27F"><em>pan</em></span></div></div>
+  <div class="scene" id="s2"><div class="big" style="top:760px;font-size:170px;color:#fff"><span>de tu</span><span><em>colonia.</em></span></div></div>
+  <div class="scene" id="s3"><div class="big" style="top:720px;font-size:160px;color:var(--ink)"><span>Pero</span><span>nadie</span><span style="color:var(--clay)"><em>lo encuentra.</em></span></div></div>
+  <div class="scene" id="s4">
+    <div class="big" style="top:420px;font-size:120px;color:var(--ink)"><span>Tus fotos se</span><span><em style="color:var(--clay)">pierden</em> en</span><span>el chat.</span></div>
+    <div class="blur" id="chat"><div><span class="ph"></span></div><div>¿Cuánto cuesta?</div><div>¿Tienes menú?</div><div>¿Hasta qué hora?</div></div>
+  </div>
+  <div class="scene" id="s5">
+    <div class="big" style="top:700px;font-size:170px;color:#fff"><span>Dale una</span><span style="color:var(--sand)"><em>vitrina.</em></span></div>
+    <div class="url" id="url5">guiacomida.com/<b>tunegocio</b></div>
+  </div>
+  <div class="scene" id="s6">
+    <div class="big" style="top:250px;font-size:96px;color:var(--ink)"><span>Menú, precios</span><span>y <em style="color:var(--green)">WhatsApp</em></span></div>
+    <div class="ej">EJEMPLO</div>
+    <div class="phone" id="ph6"><div class="scr">
+      <div class="cover"></div><div class="av">E</div>
+      <div class="bz"><b>Panadería La Espiga</b><small>Pan de masa madre</small>
+        <div class="prod"><i style="background:linear-gradient(135deg,#E9C48E,#B9773E)"></i><div>Hogaza de masa madre</div><em>$95</em></div>
+        <div class="prod"><i style="background:linear-gradient(135deg,#F3D9B5,#D8925A)"></i><div>Rol de canela</div><em>$35</em></div>
+        <div class="prod"><i style="background:linear-gradient(135deg,#F7E3C8,#E2A46A)"></i><div>Conchas (6)</div><em>$90</em></div>
+        <div class="prod"><i style="background:linear-gradient(135deg,#6B3B22,#3A1F12)"></i><div>Pastel de chocolate</div><em>$380</em></div>
+      </div>
+      <div class="wabar">Pedir por WhatsApp</div>
+    </div></div>
+  </div>
+  <div class="scene" id="s7"><div class="big" style="top:640px;font-size:330px;color:var(--wa);text-align:center"><span>$0</span></div>
+    <div class="big" style="top:1080px;font-size:100px;color:#fff;text-align:center"><span>de comisión</span><span style="font-size:70px;color:#E9DCCB;margin-top:20px">por pedido</span></div></div>
+  <div class="scene" id="s8"><div class="big" style="top:600px;font-size:220px;color:#fff"><span>1 mes</span><span style="color:var(--sand)"><em>gratis</em></span><span style="font-size:110px;color:#CFE6D4;margin-top:30px">sin tarjeta</span></div></div>
+  <div class="scene" id="s9">
+    <div class="wmk" id="wmk"><span class="wm"><i>G</i><b>Guia</b><span>Comida</span></span></div>
+    <div class="big" style="top:700px;font-size:110px;color:#fff;text-align:center"><span>Tu cortesía</span><span><em style="color:var(--sand)">te espera</em></span></div>
+    <div class="cta" id="cta">Link en el perfil</div>
+    <div class="lugares" id="lug">Solo 100 lugares</div>
+    <div class="dir" id="dir">guiacomida.com/bienvenida2026</div>
+  </div>
+</div>
+<script src="reel_gc.js"></script>
+<script>
+// 105 BPM: un corte cada 2 tiempos (~1.14 s) o 4 tiempos (~2.29 s)
+const b=60/105;
+window.T = window.T || [0,4*b,6*b,10*b,14*b,17*b,21*b,24*b,28*b,36*b];
+const BG=['#241B12','#C75D38','#FBF6EE','#FBF1DC','#C75D38','#FBF6EE','#241B12','#3C6B47','#C75D38'];
+function words(id,lt,step){[...document.querySelectorAll('#'+id+' .big span')].forEach((s,j)=>slam(s,lt-j*step))}
+function anim(t,T){
+  const L=i=>t-T[i];
+  words('s1',L(0),b);
+  words('s2',L(1),b);
+  words('s3',L(2),b*0.9);
+  {words('s4',L(3),b*0.7);[...$('chat').children].forEach((c,j)=>rise(c,L(3)-0.9-j*0.35,40,0.3));}
+  {words('s5',L(4),b);rise($('url5'),L(4)-1.2,30,0.35);}
+  {words('s6',L(5),b*0.6);const ph=$('ph6');ph.style.transform=`translateY(${(1-back(L(5)/0.6))*700}px)`;
+   document.querySelectorAll('#s6 .prod').forEach((p,j)=>rise(p,L(5)-0.5-j*0.3,30,0.3));}
+  {words('s7',L(6),b);}
+  {words('s8',L(7),b);}
+  {const lt=L(8);pop($('wmk'),lt,0.5);words('s9',lt-0.5,b);
+   $('cta').style.opacity=clamp((lt-1.6)/0.15);$('cta').style.transform=`translateX(-50%) scale(${(0.6+0.4*back((lt-1.6)/0.45))*(1+0.035*Math.sin(lt*7))})`;
+   rise($('lug'),lt-2.0,30,0.3);rise($('dir'),lt-2.3,30,0.3);}
+}
+render(0);
+</script></body></html>
