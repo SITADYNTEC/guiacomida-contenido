@@ -1,0 +1,140 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+/* R2 · POV / humor con voz Liza y subtítulos palabra por palabra */
+#stage{width:1080px;height:1920px;position:relative;overflow:hidden;background:var(--ink)}
+.scene{position:absolute;inset:0;opacity:0}
+.big{position:absolute;left:90px;right:90px;font-family:'Fraunces';font-weight:700;letter-spacing:-.03em;line-height:.98}
+.big span{display:block;opacity:0}
+.big em{font-style:italic}
+.k{position:absolute;left:90px;top:260px;font-size:34px;font-weight:800;letter-spacing:.24em;text-transform:uppercase}
+#subs{position:absolute;left:70px;right:70px;top:1440px;text-align:center;font-family:'Albert Sans';font-weight:800;font-size:58px;line-height:1.2;z-index:9;opacity:0}
+#subs span{display:inline-block;color:#fff;background:rgba(36,27,18,.88);padding:4px 14px;border-radius:14px;margin:4px 2px}
+#subs span.on{background:var(--sand);color:var(--ink);text-shadow:none}
+
+/* s1 reloj */
+.clock{position:absolute;left:0;right:0;top:560px;text-align:center;font-family:'Fraunces';font-weight:700;font-size:300px;letter-spacing:-.05em;color:var(--sand);line-height:1}
+.clock small{font-size:96px;letter-spacing:0;color:#E9DCCB}
+.glow{position:absolute;left:50%;top:1000px;width:900px;height:500px;margin-left:-450px;border-radius:50%;background:radial-gradient(closest-side,rgba(242,162,127,.35),transparent)}
+/* s2 teléfono con notificaciones */
+.phone{position:absolute;left:250px;top:330px;width:580px;height:1040px;background:#120d08;border-radius:70px;padding:20px;box-shadow:0 40px 90px rgba(0,0,0,.5)}
+.scr{background:#2a2119;border-radius:52px;height:100%;overflow:hidden;position:relative;padding:120px 26px 0}
+.tm{position:absolute;left:0;right:0;top:40px;text-align:center;color:#E9DCCB;font-weight:700;font-size:30px}
+.nt{background:rgba(255,255,255,.92);border-radius:26px;padding:20px 22px;margin-bottom:14px;opacity:0;display:flex;gap:16px;align-items:center}
+.nt i{flex:none;width:52px;height:52px;border-radius:14px;background:var(--wa)}
+.nt div{font-size:24px;color:var(--ink);line-height:1.25}
+.nt b{display:block;font-size:22px;color:var(--ink-soft);font-weight:700}
+/* s3 burbujas */
+.q{position:absolute;font-family:'Fraunces';font-weight:700;font-size:96px;line-height:1;background:#fff;color:var(--ink);border-radius:46px 46px 46px 12px;padding:40px 52px;box-shadow:0 20px 50px rgba(36,27,18,.18);opacity:0}
+.cnt{position:absolute;right:90px;top:250px;font-weight:800;font-size:34px;color:var(--clay2);letter-spacing:.1em}
+.mini{position:absolute;left:90px;top:250px;font-weight:800;font-size:34px;color:var(--ink-soft);letter-spacing:.1em}
+/* s4 link */
+.link{position:absolute;left:90px;right:90px;top:820px;background:var(--ink);color:#fff;border-radius:36px;padding:44px 40px;font-size:54px;font-weight:700;text-align:center;opacity:0}
+.link b{color:var(--sand)}
+.tapc{position:absolute;left:740px;top:980px;width:120px;height:120px;border-radius:50%;border:8px solid var(--clay);opacity:0}
+/* s5 vitrina */
+.ph5{position:absolute;left:270px;top:360px;width:540px;height:1020px;background:#1b140d;border-radius:66px;padding:18px;box-shadow:0 40px 80px rgba(36,27,18,.35)}
+.scr5{background:var(--cream);border-radius:50px;height:100%;overflow:hidden;position:relative}
+.cover{height:190px;background:linear-gradient(135deg,#E8B98A,#C75D38)}
+.av{position:absolute;left:30px;top:140px;width:100px;height:100px;border-radius:50%;background:#fff;border:6px solid var(--cream);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-weight:700;font-size:44px;color:var(--clay)}
+.bz{padding:62px 30px 0}
+.bz b{font-family:'Fraunces';font-size:32px;display:block}
+.bz small{font-size:19px;color:var(--ink-soft)}
+.prod{display:flex;align-items:center;gap:16px;background:#fff;border-radius:20px;padding:14px;margin-top:16px;opacity:0}
+.prod i{width:78px;height:78px;border-radius:14px;flex:none}
+.prod div{flex:1;font-size:21px;font-weight:600}
+.prod em{font-style:normal;font-weight:800;font-size:23px}
+.wabar{position:absolute;left:24px;right:24px;bottom:26px;background:var(--wa);color:#073B1E;border-radius:999px;text-align:center;padding:18px;font-weight:800;font-size:23px}
+.ej{position:absolute;right:90px;top:290px;font-size:24px;letter-spacing:.14em;font-weight:800;color:var(--ink-soft)}
+.lbl5{position:absolute;left:90px;top:250px;font-family:'Fraunces';font-weight:700;font-size:56px;color:var(--ink)}
+/* s6 pedido */
+.ord{position:absolute;left:90px;right:150px;top:560px;background:#DCF8C6;color:var(--ink);border-radius:40px 40px 40px 12px;padding:40px 44px;font-size:46px;font-weight:600;line-height:1.25;box-shadow:0 20px 50px rgba(0,0,0,.25);opacity:0;transform-origin:left bottom}
+.ord small{display:block;font-size:24px;font-weight:800;letter-spacing:.16em;color:var(--green);margin-bottom:10px}
+.zero{position:absolute;left:0;right:0;top:960px;text-align:center;font-family:'Fraunces';font-weight:700;font-size:240px;line-height:1;color:var(--sand);opacity:0}
+.zero small{display:block;font-size:64px;color:#CFE6D4;margin-top:10px}
+/* cierre */
+.wmk{position:absolute;left:0;right:0;top:400px;text-align:center;font-size:92px;color:#fff}
+.wmk .wm i{background:var(--clay);color:#fff}
+.n100{position:absolute;left:0;right:0;top:620px;text-align:center;font-family:'Fraunces';font-weight:700;font-size:300px;line-height:1;color:var(--sand)}
+.n100l{position:absolute;left:0;right:0;top:930px;text-align:center;font-size:56px;font-weight:700;color:#fff}
+.cta{position:absolute;left:50%;top:1080px;transform:translateX(-50%);background:var(--clay);color:#fff;border-radius:999px;padding:34px 60px;font-weight:800;font-size:54px;white-space:nowrap;opacity:0}
+.dir{position:absolute;left:0;right:0;top:1250px;text-align:center;color:#E9DCCB;font-size:36px}
+</style></head><body>
+<div id="stage">
+  <div class="scene" id="s1">
+    <div class="k" style="color:#F2A27F">POV</div>
+    <div class="glow"></div>
+    <div class="clock" id="clk">11:00<small> p.m.</small></div>
+  </div>
+  <div class="scene" id="s2">
+    <div class="phone" id="ph2"><div class="scr"><div class="tm" id="tm2">11:02 p.m.</div>
+      <div class="nt"><i></i><div><b>WhatsApp · ahora</b>¿Cuánto cuesta el pastel?</div></div>
+      <div class="nt"><i></i><div><b>WhatsApp · ahora</b>Hola, ¿precio?</div></div>
+      <div class="nt"><i></i><div><b>Instagram · ahora</b>¿Info del pan?</div></div>
+      <div class="nt"><i></i><div><b>WhatsApp · ahora</b>¿Tienes menú?</div></div>
+      <div class="nt"><i></i><div><b>WhatsApp · ahora</b>¿Cuánto cuesta?</div></div>
+    </div></div>
+  </div>
+  <div class="scene" id="s3">
+    <div class="mini" id="tm3">11:24 p.m.</div><div class="cnt" id="cnt3">Otra vez</div>
+    <div class="q" id="q1" style="left:90px;top:420px">¿Cuánto cuesta?</div>
+    <div class="q" id="q2" style="right:90px;top:720px;background:var(--sand)">¿Tienes menú?</div>
+    <div class="q" id="q3" style="left:90px;top:1020px;font-size:84px">¿Hasta qué día entregas?</div>
+  </div>
+  <div class="scene" id="s4">
+    <div class="big" style="top:380px;font-size:130px;color:var(--ink)"><span>Mejor</span><span>manda <em style="color:var(--clay)">un link.</em></span></div>
+    <div class="link" id="lnk">guiacomida.com/<b>tunegocio</b></div>
+    <div class="tapc" id="tap"></div>
+  </div>
+  <div class="scene" id="s5">
+    <div class="lbl5">Tu vitrina</div><div class="ej">EJEMPLO</div>
+    <div class="ph5" id="ph5"><div class="scr5">
+      <div class="cover"></div><div class="av">E</div>
+      <div class="bz"><b>Panadería La Espiga</b><small>Pan de masa madre · negocio de ejemplo</small>
+        <div class="prod"><i style="background:linear-gradient(135deg,#E9C48E,#B9773E)"></i><div>Hogaza de masa madre</div><em>$95</em></div>
+        <div class="prod"><i style="background:linear-gradient(135deg,#F3D9B5,#D8925A)"></i><div>Rol de canela</div><em>$35</em></div>
+        <div class="prod"><i style="background:linear-gradient(135deg,#F7E3C8,#E2A46A)"></i><div>Conchas (6)</div><em>$90</em></div>
+        <div class="prod"><i style="background:linear-gradient(135deg,#6B3B22,#3A1F12)"></i><div>Pastel de chocolate</div><em>$380</em></div>
+      </div>
+      <div class="wabar">Pedir por WhatsApp</div>
+    </div></div>
+  </div>
+  <div class="scene" id="s6">
+    <div class="ord" id="ord"><small>NUEVO PEDIDO</small>Hola, quiero 2 hogazas y 6 conchas para el sábado.</div>
+    <div class="zero" id="zero">$0<small>de comisión</small></div>
+  </div>
+  <div class="scene" id="s7"><div class="big" style="top:420px;font-size:220px;color:#fff"><span>1 mes</span><span style="color:var(--sand)"><em>gratis</em></span><span style="font-size:110px;color:#FFE9DE;margin-top:30px">sin tarjeta</span></div></div>
+  <div class="scene" id="s8">
+    <div class="wmk" id="wmk"><span class="wm"><i>G</i><b>Guia</b><span>Comida</span></span></div>
+    <div class="n100" id="n100">100</div><div class="n100l" id="n100l">lugares, nada más</div>
+    <div class="cta" id="cta">Link en el perfil</div>
+    <div class="dir" id="dir">guiacomida.com/bienvenida2026</div>
+  </div>
+  <div id="subs"></div>
+</div>
+<script src="reel_gc.js"></script>
+<script>
+window.T = window.T || [0,2.0,4.25,7.95,10.0,12.3,15.75,18.6,23.05];
+const BG=['#241B12','#3A2E22','#FBF6EE','#FBF1DC','#FBF6EE','#3C6B47','#C75D38','#241B12'];
+window.W = [["Son", 0.377, 0.39], ["las", 0.51, 0.63], ["once", 0.71, 0.95], ["de", 0.99, 1.03], ["la", 1.11, 1.19], ["noche…", 1.27, 2.07], ["y", 2.15, 2.23], ["sigues", 2.35, 2.63], ["contestando", 2.83, 3.19], ["lo", 3.27, 3.35], ["mismo.", 3.43, 4.03], ["¿Cuánto", 4.31, 4.55], ["cuesta?", 4.63, 5.377], ["¿Tienes", 5.403, 5.67], ["menú?", 5.79, 6.417], ["¿Hasta", 6.443, 6.71], ["qué", 6.75, 6.79], ["día", 6.87, 6.95], ["entregas?", 7.03, 7.75], ["Con", 8.135, 8.15], ["GuiaComida", 8.19, 8.79], ["mandas", 8.87, 9.19], ["un", 9.23, 9.27], ["link:", 9.35, 9.91], ["tu", 9.95, 9.99], ["vitrina", 10.03, 10.39], ["con", 10.47, 10.63], ["fotos,", 10.71, 11.19], ["precios", 11.27, 11.59], ["y", 11.67, 11.71], ["menú…", 11.75, 12.31], ["y", 12.35, 12.39], ["el", 12.43, 12.47], ["pedido", 12.55, 12.79], ["te", 12.87, 12.95], ["llega", 13.03, 13.27], ["directo", 13.47, 13.75], ["por", 13.83, 13.91], ["WhatsApp,", 14.15, 14.55], ["sin", 14.67, 14.79], ["comisión.", 14.87, 15.75], ["Y", 15.81, 15.83], ["tu", 15.91, 15.99], ["primer", 16.15, 16.31], ["mes", 16.47, 16.63], ["es", 16.75, 16.87], ["gratis,", 17.11, 17.51], ["sin", 17.63, 17.75], ["tarjeta.", 17.83, 18.63], ["Son", 18.71, 18.79], ["solo", 18.87, 19.03], ["cien", 19.19, 19.35], ["lugares.", 19.43, 20.15], ["Entra", 20.23, 20.39], ["al", 20.47, 20.55], ["link", 20.63, 20.71], ["del", 20.79, 20.87], ["perfil.", 20.95, 21.59]];
+function words(id,lt,step){[...document.querySelectorAll('#'+id+' .big span')].forEach((s,j)=>slam(s,lt-j*step))}
+function anim(t,T){
+  const L=i=>t-T[i];
+  {const lt=L(0);slam($('clk'),lt);$('clk').style.transform+=` translateY(${Math.sin(lt*3)*4}px)`;}
+  {const lt=L(1);$('ph2').style.transform=`translateY(${(1-back(lt/0.5))*900}px)`;
+   document.querySelectorAll('#s2 .nt').forEach((n,j)=>pop(n,lt-0.35-j*0.32,0.25));
+   const m=2+Math.floor(clamp(lt/2.2)*9);$('tm2').textContent='11:'+String(m).padStart(2,'0')+' p.m.';}
+  {const lt=L(2);const q=[0.05,1.15,2.2];['q1','q2','q3'].forEach((id,j)=>{pop($(id),lt-q[j],0.3);if(lt-q[j]>0.3)$(id).style.transform=`scale(1) rotate(${(j%2?1:-1)*1.5}deg)`});
+   const m=24+Math.floor(clamp(lt/3.6)*23);$('tm3').textContent='11:'+String(m).padStart(2,'0')+' p.m.';rise($('cnt3'),lt-1.2,20,0.3);}
+  {const lt=L(3);words('s4',lt,0.35);pop($('lnk'),lt-0.9,0.35);
+   const tp=lt-1.5;$('tap').style.opacity=tp>0&&tp<0.5?1-tp/0.5:0;$('tap').style.transform=`scale(${0.5+tp})`;}
+  {const lt=L(4);$('ph5').style.transform=`translateY(${(1-back(lt/0.6))*800}px)`;
+   document.querySelectorAll('#s5 .prod').forEach((p,j)=>rise(p,lt-0.45-j*0.28,30,0.3));rise($('ej')||document.querySelector('.ej'),lt-0.2,20,0.3);}
+  {const lt=L(5);pop($('ord'),lt-0.1,0.35);if(lt>0.45)$('ord').style.transform=`scale(${1+0.015*Math.sin(lt*6)})`;
+   pop($('zero'),lt-1.7,0.4);}
+  words('s7',L(6),0.45);
+  {const lt=L(7);pop($('wmk'),lt,0.45);$('n100').textContent=Math.round(100*ease((lt-0.1)/0.7));rise($('n100l'),lt-0.4,30,0.3);
+   $('cta').style.opacity=clamp((lt-1.5)/0.15);$('cta').style.transform=`translateX(-50%) scale(${(0.6+0.4*back((lt-1.5)/0.45))*(1+0.035*Math.sin(lt*7))})`;
+   rise($('dir'),lt-1.9,30,0.3);}
+}
+render(0);
+</script></body></html>
