@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+/* R3 · Antes/después en pantalla dividida (sin voz, música 105 BPM) */
+#stage{width:1080px;height:1920px;position:relative;overflow:hidden;background:var(--ink)}
+.scene{position:absolute;inset:0;opacity:0}
+.big{position:absolute;left:90px;right:90px;font-family:'Fraunces';font-weight:700;letter-spacing:-.03em;line-height:.98}
+.big span{display:block;opacity:0}
+.big em{font-style:italic}
+.chip{display:inline-block;border-radius:999px;padding:12px 28px;font-size:28px;font-weight:800;letter-spacing:.2em}
+/* s2 chat */
+.hd{position:absolute;left:90px;right:90px;top:230px;display:flex;justify-content:space-between;align-items:center}
+.cnt{font-family:'Fraunces';font-weight:700;font-size:54px;color:var(--ink)}
+.cnt b{color:var(--clay);font-size:84px}
+.chat{position:absolute;left:90px;right:90px;top:380px;height:1220px;display:flex;flex-direction:column;justify-content:flex-end;gap:20px;overflow:hidden}
+.m{display:none;flex:none;max-width:78%;border-radius:30px 30px 30px 8px;padding:24px 32px;font-size:40px;font-weight:500;background:#fff;color:var(--ink);box-shadow:0 8px 20px rgba(36,27,18,.10);align-self:flex-start;transform-origin:left bottom}
+.m.me{align-self:flex-end;background:#DCF8C6;border-radius:30px 30px 8px 30px;transform-origin:right bottom}
+.m.ph{width:300px;height:220px;padding:0;background:linear-gradient(135deg,#6B3B22,#3A1F12)}
+.m.seen{background:none;box-shadow:none;font-size:30px;color:var(--ink-soft);padding:0 10px}
+/* s4 split */
+#top{position:absolute;left:0;right:0;top:0;overflow:hidden;background:var(--ink)}
+#bot{position:absolute;left:0;right:0;height:1920px;background:var(--sand)}
+#top .lbl{position:absolute;left:90px;top:200px;display:flex;align-items:center;gap:26px;color:#E9DCCB;font-family:'Fraunces';font-weight:700;font-size:58px}
+#top .chip{background:#F2A27F;color:var(--ink)}
+.mini{position:absolute;left:90px;right:90px;top:340px;display:flex;flex-direction:column;gap:14px;opacity:.55}
+.mini div{background:#3A2E22;color:#E9DCCB;border-radius:22px 22px 22px 6px;padding:16px 24px;font-size:30px;width:max-content}
+.mini div:nth-child(even){align-self:flex-end;background:#4a5a3c;border-radius:22px 22px 6px 22px}
+#bot .lbl{position:absolute;left:90px;top:44px;display:flex;align-items:center;gap:26px;color:var(--ink);font-family:'Fraunces';font-weight:700;font-size:58px}
+#bot .chip{background:var(--green);color:#fff}
+.ej{position:absolute;right:90px;top:150px;font-size:22px;letter-spacing:.14em;font-weight:800;color:var(--ink-soft)}
+.vit{position:absolute;left:90px;right:90px;top:190px;padding:30px 34px}
+.vit b{font-family:'Fraunces';font-size:40px;display:block}
+.vit small{font-size:24px;color:var(--ink-soft)}
+.prod{display:flex;align-items:center;gap:22px;margin-top:22px}
+.prod i{width:120px;height:120px;border-radius:20px;flex:none;background:linear-gradient(135deg,#6B3B22,#3A1F12)}
+.prod div{flex:1;font-size:34px;font-weight:700}
+.prod em{font-style:normal;font-weight:800;font-size:40px}
+.wabar{margin-top:24px;background:var(--wa);color:#073B1E;border-radius:999px;text-align:center;padding:22px;font-weight:800;font-size:32px}
+.order{position:absolute;left:90px;top:580px;max-width:820px;background:#fff;border-radius:30px 30px 30px 8px;padding:26px 32px;font-size:36px;font-weight:600;line-height:1.25;box-shadow:0 10px 24px rgba(36,27,18,.14);transform-origin:left bottom}
+.order small{display:block;font-size:22px;font-weight:800;letter-spacing:.14em;color:var(--green);margin-bottom:8px}
+.one{position:absolute;right:90px;top:770px;font-family:'Fraunces';font-weight:700;font-size:54px;color:var(--green)}
+.fin{position:absolute;left:90px;right:90px;top:900px;font-family:'Fraunces';font-weight:700;font-size:112px;line-height:1;letter-spacing:-.03em;color:var(--ink)}
+.fin em{color:var(--clay);font-style:italic}
+/* cierre */
+.sm{position:absolute;left:90px;right:90px;top:1180px;font-size:52px;font-weight:600;color:#E9DCCB}
+.wmk{position:absolute;left:0;right:0;top:420px;text-align:center;font-size:92px;color:#fff}
+.wmk .wm i{background:#fff;color:var(--clay)}
+.cta{position:absolute;left:50%;top:1060px;transform:translateX(-50%);background:#fff;color:var(--clay2);border-radius:999px;padding:34px 60px;font-weight:800;font-size:54px;white-space:nowrap}
+.lugares{position:absolute;left:0;right:0;top:1250px;text-align:center;color:#fff;font-size:40px;font-weight:600}
+.dir{position:absolute;left:0;right:0;top:1330px;text-align:center;color:#FFE9DE;font-size:34px}
+</style></head><body>
+<div id="stage">
+  <div class="scene" id="s1"><div class="big" style="top:660px;font-size:170px;color:#fff"><span>Vender</span><span style="color:#F2A27F"><em>por DM</em></span><span style="font-size:120px">se ve así:</span></div></div>
+  <div class="scene" id="s2">
+    <div class="hd"><span class="chip" style="background:var(--ink);color:#fff">ANTES</span><span class="cnt">Mensajes: <b id="n">0</b></span></div>
+    <div class="chat" id="chat">
+      <div class="m">¿Precio del pastel?</div>
+      <div class="m me">$380 el de chocolate</div>
+      <div class="m">¿Qué otros sabores tienes?</div>
+      <div class="m me">Vainilla, tres leches y zanahoria</div>
+      <div class="m">¿Tienes fotos?</div>
+      <div class="m me ph"></div>
+      <div class="m">¿Entregas el sábado?</div>
+      <div class="m me">Sí, con 2 días de anticipación</div>
+      <div class="m">¿Y para cuántas personas es?</div>
+      <div class="m me">Para 20</div>
+      <div class="m">Ok, te aviso</div>
+      <div class="m me seen">Visto</div>
+    </div>
+  </div>
+  <div class="scene" id="s3"><div class="big" style="top:680px;font-size:180px;color:#fff"><span>Ahora,</span><span>con tu</span><span style="color:var(--sand)"><em>vitrina:</em></span></div></div>
+  <div class="scene" id="s4">
+    <div id="bot">
+      <div class="lbl"><span class="chip">DESPUÉS</span><span id="l2">con vitrina</span></div>
+      <div class="ej">EJEMPLO</div>
+      <div class="vit card" id="vit"><b>Repostería Miel y Canela</b><small>guiacomida.com/tunegocio</small>
+        <div class="prod"><i></i><div>Pastel de chocolate<br><span style="font-size:24px;font-weight:500;color:var(--ink-soft)">Para 20 personas · 2 días de anticipación</span></div><em>$380</em></div>
+        <div class="wabar" id="wab">Pedir por WhatsApp</div>
+      </div>
+      <div class="order" id="ord"><small>NUEVO PEDIDO</small>Hola, quiero 1 pastel de chocolate para el sábado.</div>
+      <div class="one" id="one">1 mensaje</div>
+      <div class="fin" id="fin">Un link.<br><em>Un pedido claro.</em></div>
+    </div>
+    <div id="top">
+      <div class="lbl"><span class="chip">ANTES</span><span>11 mensajes</span></div>
+      <div class="mini"><div>¿Precio del pastel?</div><div>$380 el de chocolate</div><div>¿Qué otros sabores tienes?</div><div>Vainilla, tres leches y zanahoria</div><div>¿Tienes fotos?</div></div>
+    </div>
+  </div>
+  <div class="scene" id="s5"><div class="big" style="top:680px;font-size:190px;color:#fff"><span>El cliente</span><span style="color:#F2A27F"><em>es tuyo.</em></span></div><div class="sm" id="sm5">Sin comisión por pedido.</div></div>
+  <div class="scene" id="s6"><div class="big" style="top:600px;font-size:220px;color:#fff"><span>1 mes</span><span style="color:var(--sand)"><em>gratis</em></span><span style="font-size:110px;color:#CFE6D4;margin-top:30px">sin tarjeta</span></div></div>
+  <div class="scene" id="s7">
+    <div class="wmk" id="wmk"><span class="wm"><i>G</i><b>Guia</b><span>Comida</span></span></div>
+    <div class="big" style="top:700px;font-size:110px;color:#fff;text-align:center"><span>Arma tu vitrina</span><span><em style="color:var(--sand)">en minutos</em></span></div>
+    <div class="cta" id="cta">Link en el perfil</div>
+    <div class="lugares" id="lug">Solo 100 lugares</div>
+    <div class="dir" id="dir">guiacomida.com/bienvenida2026</div>
+  </div>
+</div>
+<script src="reel_gc.js"></script>
+<script>
+// 105 BPM: b = un tiempo (~0.57 s)
+const b=60/105;
+window.T = window.T || [0,4*b,16*b,20*b,34*b,38*b,42*b,50*b];
+const BG=['#241B12','#FBF6EE','#C75D38','#FBF1DC','#241B12','#3C6B47','#C75D38'];
+function words(id,lt,step){[...document.querySelectorAll('#'+id+' .big span')].forEach((s,j)=>slam(s,lt-j*step))}
+function anim(t,T){
+  const L=i=>t-T[i];
+  words('s1',L(0),b);
+  {const lt=L(1);let n=0;[...$('chat').children].forEach((m,j)=>{const k=lt-0.25-j*b*0.95;m.style.display=k>0?'block':'none';
+     if(k>0){if(!m.classList.contains('seen'))n++;m.style.transform=`scale(${0.7+0.3*back(k/0.25)})`;m.style.opacity=clamp(k/0.1)}});
+   $('n').textContent=n;$('n').style.color=n>7?'#C75D38':'#241B12';}
+  words('s3',L(2),b);
+  {const lt=L(3);const end=T[4]-T[3];
+   // divisor: entra a la mitad y al final sube para dejar ganar al "después"
+   let y=1920-(1920-800)*ease(lt/0.6); const k2=ease((lt-(end-4.5*b))/0.6); y=y-(800-330)*k2;
+   $('top').style.height=y+'px';$('bot').style.top=y+'px';
+   rise($('vit'),lt-0.8,60,0.4);
+   const tap=lt-2.6;$('wab').style.transform=`scale(${1+0.06*Math.sin(clamp(tap/0.35)*Math.PI)})`;$('wab').style.filter=tap>0&&tap<0.35?'brightness(.88)':'none';
+   pop($('ord'),lt-3.1,0.35);pop($('one'),lt-4.0,0.35);if(lt>4.4)$('one').style.transform=`scale(${1+0.05*Math.sin((lt-4.4)*6)})`;
+   rise($('fin'),lt-(end-4.5*b)-0.4,60,0.4);}
+  {words('s5',L(4),b);rise($('sm5'),L(4)-1.2,30,0.3);}
+  words('s6',L(5),b);
+  {const lt=L(6);pop($('wmk'),lt,0.5);words('s7',lt-0.5,b);
+   $('cta').style.opacity=clamp((lt-1.6)/0.15);$('cta').style.transform=`translateX(-50%) scale(${(0.6+0.4*back((lt-1.6)/0.45))*(1+0.035*Math.sin(lt*7))})`;
+   rise($('lug'),lt-2.0,30,0.3);rise($('dir'),lt-2.3,30,0.3);}
+}
+render(0);
+</script></body></html>
